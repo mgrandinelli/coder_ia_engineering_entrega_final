@@ -1,0 +1,42 @@
+{
+  "supervisor": {
+    "veces": 20,
+    "p50_s": 0.044,
+    "p95_s": 0.308,
+    "tokens": 10681,
+    "porcentaje_tokens": 27.5,
+    "costo_usd": 0.002102
+  },
+  "research_agent": {
+    "veces": 5,
+    "p50_s": 0.222,
+    "p95_s": 0.232,
+    "tokens": 18825,
+    "porcentaje_tokens": 48.4,
+    "costo_usd": 0.003015
+  },
+  "analyst_agent": {
+    "veces": 10,
+    "p50_s": 0.139,
+    "p95_s": 0.18,
+    "tokens": 6740,
+    "porcentaje_tokens": 17.3,
+    "costo_usd": 0.001353
+  },
+  "aprobacion_humana": {
+    "veces": 8,
+    "p50_s": 0.004,
+    "p95_s": 0.013,
+    "tokens": 0,
+    "porcentaje_tokens": 0.0,
+    "costo_usd": 0.0
+  },
+  "synthesizer": {
+    "veces": 5,
+    "p50_s": 0.013,
+    "p95_s": 0.015,
+    "tokens": 2644,
+    "porcentaje_tokens": 6.8,
+    "costo_usd": 0.00064
+  }
+}

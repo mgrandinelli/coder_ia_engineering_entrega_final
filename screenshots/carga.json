@@ -1,0 +1,82 @@
+{
+  "peticiones": 5,
+  "duracion_total_s": 2.476,
+  "latencia_p50_s": 2.453,
+  "latencia_p95_s": 2.472,
+  "latencia_media_s": 1.97,
+  "costo_medio_por_ejecucion_usd": 0.001422,
+  "costo_total_usd": 0.00711,
+  "tokens_totales": 38890,
+  "trabajos": [
+    {
+      "job_id": "3dc7e8ad5df647b5bf130dee5c71360e",
+      "status": "DONE",
+      "critica": true,
+      "latencia_s": 2.476,
+      "metricas": {
+        "llamadas_modelo": 11,
+        "tokens_entrada": 7237,
+        "tokens_salida": 567,
+        "latencia_modelo_s": 0.408,
+        "duracion_s": 1.215
+      },
+      "costo_usd": 0.001426
+    },
+    {
+      "job_id": "021a22547b634e25bdb0270efa2b38c0",
+      "status": "DONE",
+      "critica": false,
+      "latencia_s": 1.234,
+      "metricas": {
+        "llamadas_modelo": 11,
+        "tokens_entrada": 7172,
+        "tokens_salida": 567,
+        "latencia_modelo_s": 0.365,
+        "duracion_s": 1.116
+      },
+      "costo_usd": 0.001416
+    },
+    {
+      "job_id": "7a2f2c33e7c44083814c8b55fa0411b2",
+      "status": "DONE",
+      "critica": true,
+      "latencia_s": 2.455,
+      "metricas": {
+        "llamadas_modelo": 11,
+        "tokens_entrada": 7237,
+        "tokens_salida": 567,
+        "latencia_modelo_s": 0.386,
+        "duracion_s": 1.206
+      },
+      "costo_usd": 0.001426
+    },
+    {
+      "job_id": "02c36d4f859b46279a946c8f966a3e9f",
+      "status": "DONE",
+      "critica": false,
+      "latencia_s": 1.234,
+      "metricas": {
+        "llamadas_modelo": 11,
+        "tokens_entrada": 7172,
+        "tokens_salida": 567,
+        "latencia_modelo_s": 0.374,
+        "duracion_s": 1.165
+      },
+      "costo_usd": 0.001416
+    },
+    {
+      "job_id": "16b6cd45549441ffaa71c7e3cdaaac31",
+      "status": "DONE",
+      "critica": true,
+      "latencia_s": 2.453,
+      "metricas": {
+        "llamadas_modelo": 11,
+        "tokens_entrada": 7237,
+        "tokens_salida": 567,
+        "latencia_modelo_s": 0.404,
+        "duracion_s": 1.233
+      },
+      "costo_usd": 0.001426
+    }
+  ]
+}

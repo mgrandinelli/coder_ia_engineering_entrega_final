@@ -1,0 +1,65 @@
+services:
+  api:
+    build: .
+    ports:
+      - "${API_PORT:-8000}:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      REDIS_URL: redis://redis:6379
+      CHROMA_HOST: chroma
+      CHROMA_PORT: "8000"
+      PHOENIX_COLLECTOR_ENDPOINT: http://phoenix:6006/v1/traces
+      MODEL_CACHE_DIR: /models
+    volumes:
+      - model-cache:/models   # el modelo de embeddings local se descarga una sola vez
+    depends_on:
+      redis:
+        condition: service_healthy
+      chroma:
+        condition: service_started
+      phoenix:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    # Redis Stack incluye RedisJSON y RediSearch, que necesita el checkpointer de LangGraph (RedisSaver).
+    image: redis/redis-stack-server:7.4.0-v3
+    environment:
+      REDIS_ARGS: "--appendonly yes"   # guarda en disco cada escritura: los datos sobreviven a un reinicio
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 10
+
+  chroma:
+    image: chromadb/chroma:1.5.9
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma-data:/data
+
+  phoenix:
+    image: arizephoenix/phoenix:version-12.9.0
+    environment:
+      PHOENIX_WORKING_DIR: /mnt/data
+    volumes:
+      - phoenix-data:/mnt/data
+    ports:
+      - "6006:6006"   # interfaz web y recepción de trazas OTLP por HTTP
+      - "4317:4317"   # recepción de trazas OTLP por gRPC
+
+volumes:
+  redis-data:
+  chroma-data:
+  phoenix-data:
+  model-cache:

@@ -1,0 +1,23 @@
+
+1. Aprobación humana que sobrevive a un reinicio de la API
+  OK  la tarea crítica se pausó: Enviar una notificación a un canal del equipo
+  $ docker compose restart api
+  OK  tras el reinicio sigue esperando aprobación
+  OK  la aprobación fue aceptada
+  OK  el grafo continuó desde el punto de pausa y terminó
+  OK  la acción se ejecutó después de aprobar
+
+2. Conversación que continúa después de reiniciar la API y Redis
+  OK  primer turno terminado, 9 mensajes en la conversación
+  $ docker compose restart redis api
+  OK  la conversación sigue en Redis tras el reinicio
+  OK  el segundo turno terminó
+  OK  el hilo conserva el turno anterior: 14 mensajes
+  OK  el historial tiene los dos turnos
+
+3. Trabajos en curso que se recuperan tras un corte brusco de la API
+  $ docker compose kill api
+  $ docker compose start api
+  OK  los 3 trabajos terminaron tras el corte
+
+Todos los escenarios pasaron.

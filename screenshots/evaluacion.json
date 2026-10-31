@@ -1,0 +1,32 @@
+{
+  "k": 5,
+  "preguntas": 22,
+  "modelo": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "resultados": {
+    "Híbrido (BM25 + ChromaDB)": {
+      "recall": 1.0,
+      "precision": 0.255,
+      "mrr": 0.795,
+      "fallos": []
+    },
+    "Solo léxico (BM25)": {
+      "recall": 1.0,
+      "precision": 0.245,
+      "mrr": 0.932,
+      "fallos": []
+    },
+    "Solo semántico (ChromaDB)": {
+      "recall": 0.727,
+      "precision": 0.173,
+      "mrr": 0.509,
+      "fallos": [
+        "¿Cuánto dura como máximo una sesión de acceso a producción?",
+        "¿Qué es un cobro huérfano?",
+        "¿Cuándo recibe su dinero una tienda estándar?",
+        "¿Cuánto siguen activas las credenciales viejas después de generar otras?",
+        "¿Qué pasa si se cae la instancia principal de la base?",
+        "¿Quién revisa las encuestas con mala calificación?"
+      ]
+    }
+  }
+}
