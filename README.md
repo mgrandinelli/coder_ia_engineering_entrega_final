@@ -213,9 +213,6 @@ La API lanza 5 tareas asyncio que consumen la cola de Redis. Para esta escala al
 
 `ChatOpenAI` y `ChatAnthropic` se crean con `temperature=0`. El modelo por defecto de Anthropic es `claude-haiku-4-5` porque acepta ese parámetro; los modelos Claude más recientes (por ejemplo `claude-opus-5-5`) ya no lo usan y lo rechazan con un error 400.
 
-### Modo demostración
-
-Sin clave del proveedor, los agentes usan modelos guionados en lugar de un LLM real. La API, Redis, ChromaDB, el RAG, los workers, la aprobación humana y las trazas funcionan igual; lo único simulado son las respuestas de los modelos. Las pruebas y capturas de este repositorio se hicieron en ese modo. Para repetirlas con un modelo real alcanza con completar la clave en `.env` y volver a correr los scripts.
 
 ## Observabilidad
 
